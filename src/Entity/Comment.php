@@ -30,12 +30,61 @@ class Comment
     /**
      * @ORM\column(type="datetime_immutable")
      */
-    private $posteddAt;
+    private $postedAt;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Post")
+     */
+    private $post;
+
+
+    public function __construct()
+    {
+        $this->postedAt = new \DateTimeImmutable();
+    }
 
 
 
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getAuthor(): ?string
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(string $author): void
+    {
+        $this->author = $author;
+    }
+
+    public function getContent(): ?string{
+        return $this->content;
+    }
+
+    public function setContent(string $content): void{
+        $this->content = $content;
+    }
+
+    public function getPostedAt(): \DateTimeImmutable
+    {
+        return $this->postedAt;
+    }
+
+    public function setPostedAt(\DateTimeImmutable $postedAt): void
+    {
+        $this->postedAt = $postedAt;
+    }
+
+    public function getPost(): Post
+    {
+        return $this->post;
+    }
+
+    public function setPost(Post $post): void
+    {
+        $this->post = $post;
     }
 }
