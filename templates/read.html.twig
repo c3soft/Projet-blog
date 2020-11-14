@@ -3,8 +3,14 @@
 {% block body %}
     <h1>{{ post.title }}</h1>
 
-    <small>{{ post.publishedAt|date("d/m/y") }}</small>
+    <small>Date de l'annonce : {{ post.publishedAt|date("d/m/y") }}</small>
     <p>{{ post.content }}</p>
+
+    {{ form_start(form)}}
+        {{ form_row(form.author)}}
+        {{ form_row(form.content)}}
+        <button>Envoyer</button>
+    {{ form_end(form)}}
 
     <ul>
         {% for comment in post.comments%}
