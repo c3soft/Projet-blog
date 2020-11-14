@@ -6,4 +6,10 @@
     <small>{{ post.publishedAt|date("d/m/y") }}</small>
     <p>{{ post.content }}</p>
 
+    <ul>
+        {% for comment in post.comments%}
+            <li>{{ comment.author }} : {{ comment.content }}</li>
+        {% endfor %}
+    </ul>
+
 {% endblock %}

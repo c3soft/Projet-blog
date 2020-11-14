@@ -89,7 +89,8 @@ class Post
     /**
      * @return Collection
      */
-    public function getComments(): Collection
+    // public function getComments(): Collection
+    public function getComments()
 
     {
         return $this->comments;
